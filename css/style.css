@@ -68,76 +68,83 @@ body {
 .home {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribui o espaço entre o texto e a imagem */
-    padding: 50px;
-    background: url('/img/banner.png') no-repeat center center;
-    background-size: cover; /* A imagem vai cobrir toda a área da seção sem distorção */
-    background-position: center; /* Centraliza a imagem na seção */
-    height: 80vh; /* A altura será 80% da altura da tela do usuário */
-    min-height: 400px; /* Garante uma altura mínima confortável em telas menores */
-}
-
+    justify-content: flex-start;
+    padding-left: 5%;
+    background: url('../img/banner.png') no-repeat right center;
+    background-size: auto 100%; /* Mantém altura completa, sem esticar horizontalmente */
+    height: 80vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+  
 .home-text {
-    color: #113724;
-    max-width: 50%; /* O texto ocupa no máximo 50% da largura */
-    z-index: 1; /* Garante que o texto sempre apareça sobre a imagem */
-    position: relative; /* Necessário para o z-index funcionar */
-}
+    width: 50%;
+    position: relative;
+  }
 
-.cadastro {
-    background-color: #113724;
-    color: #FFFFFF;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-.cadastro input[type="text"] {
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-.botao-cadastrar {
-    padding: 10px 20px;
-    background-color: #538000;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.botao-cadastrar:hover {
-    background-color: #3d5c00;
-}
-
-
+  .slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  
+  .slide h1 {
+    font-size: 2.5rem;
+    color: #222;
+    line-height: 1.3;
+  }
+  
+  .slide.ativo {
+    opacity: 1;
+    position: relative;
+  }
 /* BLOCKCHAIN IMUTÁVEL */
 .blockchain {
-    display: flex;
-    align-items: center; /* Alinha verticalmente no centro */
-    justify-content: flex-start; /* Garante que o conteúdo se alinhe à esquerda */
     background-color: #113724;
     color: #FFFFFF;
     padding: 50px;
-}
-
-.blockchain-text {
-    max-width: 50%; /* O texto ocupa até 50% da largura da seção */
-    margin-right: 20px; /* Espaçamento entre o texto e a imagem */
-}
-.blockchain-image {
-    flex: 1; /* Faz a imagem ocupar o máximo de espaço possível */
-    max-width: 50%; /* Limita a imagem a 50% da largura */
-}
-
-.blockchain-image img {
-    width: 100%; /* Garante que a imagem ocupe toda a largura disponível */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Ajusta a imagem para cobrir o espaço da div sem distorcer */
-}
-
+  }
+  
+  .blockchain-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Garante espaço entre texto e imagem */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Garante responsividade */
+  }
+  
+  .blockchain-text {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 40px;
+  }
+  
+  .blockchain-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .blockchain-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .blockchain-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end; /* Faz a imagem colar na direita */
+  }
+  
+  .blockchain-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+  }
+  
 
 /* SEÇÃO 3 */
 .section3 {
@@ -264,3 +271,43 @@ body {
 .footer-col ul li a:hover {
     text-decoration: underline;
 }
+.sobre-nos {
+    background: #f9f6f1; /* bege sutil */
+    padding: 60px 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #3b3b3b;
+  }
+  
+  .sobre-nos .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .sobre-nos h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #3e704d; /* verde folha */
+  }
+  
+  .sobre-nos p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 768px) {
+    .blockchain-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .blockchain-text, .blockchain-image {
+      max-width: 100%;
+      padding: 0;
+    }
+  
+    .blockchain-image {
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+  
